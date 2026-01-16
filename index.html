@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Generador QR – Vanilla JS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body{font-family:system-ui, sans-serif; display:flex; flex-direction:column; align-items:center; margin-top:3rem}
+    input{width:260px; font-size:1rem; padding:.5rem}
+    button{margin:.5rem 0 1.5rem; padding:.5rem 1rem; font-size:1rem}
+    canvas{border:1px solid #ccc}
+  </style>
+</head>
+<body>
+
+  <h1>Generador de código QR</h1>
+
+  <input id="text" type="text" value="https://github.com" placeholder="Texto o URL">
+  <button onclick="generar()">Generar QR</button>
+
+  <canvas id="qr"></canvas>
+
+  <script src="qr.js"></script>
+  <script>
+    function generar() {
+      const texto = document.getElementById('text').value.trim();
+      if (!texto) return alert('Escribe algo primero');
+      const qr = new QRCode(-1, QRErrorCorrectLevel.H);
+      qr.addData(texto);
+      qr.make();
+      const ctx = document.getElementById('qr').getContext('2d');
+      const mod = qr.getModuleCount();
+      const px  = 6;                                   // tamaño de cada módulo
+      ctx.canvas.width  = mod * px;
+      ctx.canvas.height = mod * px;
+      for (let y = 0; y < mod; y++) {
+        for (let x = 0; x < mod; x++) {
+          ctx.fillStyle = qr.isDark(y, x) ? '#000' : '#fff';
+          ctx.fillRect(x * px, y * px, px, px);
+        }
+      }
+    }
+    generar(); // genera uno al cargar
+  </script>
+</body>
+</html>
