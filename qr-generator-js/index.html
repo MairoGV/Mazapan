@@ -9,7 +9,7 @@
 <body>
   <h1>Generador de código QR</h1>
 
-  <form id="qrForm">
+  <form id="qrform">
     <label>
       Texto o URL:
       <input id="text" type="text" placeholder="https://github.com/tu-usuario" required />
@@ -17,10 +17,11 @@
     <button type="submit">Generar QR</button>
   </form>
 
-  <canvas id="qrCanvas"></canvas>
+  <canvas id="qrcanvas"></canvas>
 
   <a id="downloadBtn" class="hidden" download="codigo_qr.png">Descargar PNG</a>
 
   <script src="qr.js"></script>
 </body>
+
 </html>
