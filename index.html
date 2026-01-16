@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <title>generador qr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <h1>generador de código qr</h1>
+  <form id="form">
+    <input id="texto" type="text" placeholder="https://github.com/tu-usuario" required/>
+    <button type="submit">generar qr</button>
+  </form>
+  <canvas id="lienzo"></canvas>
+  <a id="descarga" class="oculto" download="codigo_qr.png">descargar png</a>
+  <script src="qr.js"></script>
+</body>
+</html>
