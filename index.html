@@ -1,20 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <title>Generador QR – Vanilla JS</title>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
+  <title>Generador de QR</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Generador de código QR</h1>
+  <div class="card">
+    <h1>Generador de Código QR</h1>
 
-  <input id="text" type="text" value="https://github.com" placeholder="Texto o URL">
-  <button id="btn">Generar QR</button>
+    <label for="url">URL o texto</label>
+    <input id="url" type="text" placeholder="https://tu-dominio.com" value="https://github.com/" />
 
-  <canvas id="qr"></canvas>
+    <button id="btn">Generar QR</button>
+    <div class="hint">Tip: también puedes pegar texto plano.</div>
 
-  <script src="qr.js"></script>
-  <script src="app.js"></script>
+    <div id="qrcode"></div>
+  </div>
+
+  <!-- Biblioteca QRCode.js desde CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
